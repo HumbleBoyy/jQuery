@@ -18,14 +18,25 @@
        background: #333;
        color: #fff;
        padding: 20px;
+       width: 100%;
+       position: fixed;
        text-align: center;
        border-bottom: 5px #000 solid;
        margin-bottom: 10px;
+       z-index: 999;
    }
    #container{
       width: 90%;
       margin: auto;
       padding: 10px;
+   }
+   .section1{
+    padding: 6rem 0rem;
+    height: 100vh;
+   }
+   .section2{
+    padding: 1rem 0rem;
+    height: 100vh;
    }
 </style>
 <body>
@@ -72,16 +83,35 @@
             <p class="para1">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident totam vel, sed neque illum quia aliquid perspiciatis consectetur, odio nostrum voluptatum facere repellat, assumenda dignissimos tempore quas sapiente error temporibus?
             </p>
+            <h1 id="coords"></h1>
+            <hr>
+
+            <form id="form">
+                <label>Name</label><br>
+                <input type="text" id="name" name="name" placeholder="Name">
+                <br>
+                <label>Email</label>
+                <br>
+                <input type="email" name="email" id="email" placeholder="Email">
+                <br>
+                <label>Gender</label>
+                <br>
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
         </section>
     </div>
 
     <script>
 
 $(document).ready(function(){
-      //$('h1').hide();
+       //$('h1').hide();
       //$('h1#headingOne').hide();
-
-    //    $('h1.headingTwo').hide();
+     //$('h1.headingTwo').hide();
 
     $('p span').css('color', 'red');
 
@@ -93,8 +123,7 @@ $(document).ready(function(){
     $('ul#list li:odd').css('background-color', 'green')
 
 
-
-    $(':button').hide();
+    // $(':button').hide();
 
     $('[href]').css('color', 'red')
     $('a[href="http://yahoo.com"]').css('color', 'green')
@@ -120,13 +149,55 @@ $(document).ready(function(){
     //     $('.para1').show();
     // })
 
-    $('#btn1').dblclick(function(){
-        $('.para1').toggle();
-    })
-    $('#btn2').hover(function(){
-        $('.para1').toggle();
-    });
+    // $('#btn1').dblclick(function(){
+    //     $('.para1').toggle();
+    // })
+    // $('#btn2').hover(function(){
+    //     $('.para1').toggle();
+    // });
 
+    // $('#btn1').click(function(e){
+    //     console.log(e)
+    // })
+
+    $('#btn1').click(function(e){
+        // alert(e.currentTarget.id)
+        // alert(e.currentTarget.innerHTML)
+        alert(e.currentTarget.outerHTML)
+    })
+
+
+    $(document).mousemove(function(e){
+        $('#coords').html('Coords: Y: ' +e.clientY+"X: "+e.clientX);
+    })
+
+
+    $('input').focus(function(){
+        // alert('Focus')
+
+        $(this).css('background', 'red')
+    })
+
+    $('input').blur(function(){
+        // alert('Focus')
+
+        $(this).css('background', 'green')
+    })
+
+    $('input').keyup(function(e){
+        console.log(e.target.value)
+    })
+
+
+    $('select#gender').change(function(e){
+        alert(e.target.value);
+    })
+
+    $('#form').submit(function(e){
+        e.preventDefault()
+        var name = $('input#name').val();
+        console.log(name)
+    })
 
 })
    
