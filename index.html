@@ -34,45 +34,56 @@
     </header>
 
     <div id="container">
-          <h1 id="headingOne">Heading one</h1>
-          <p id="paragrphOne">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-             <span>Voluptates provident labore beatae corporis deleniti sed dolore laborum. </span>
-            Impedit, quis, ab reiciendis praesentium cum vel aliquid pariatur, beatae accusantium iste et!
-          </p>
-          <h1 class="headingTwo">Heading Two</h1>
-          <p class="paragrphtwo">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-             <span>Voluptates provident labore beatae corporis deleniti sed dolore laborum. </span>
-            Impedit, quis, ab reiciendis praesentium cum vel aliquid pariatur, beatae accusantium iste et!
-          </p>
+          <section class="section1">
+            <h1 id="headingOne">Heading one</h1>
+            <p id="paragrphOne">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+               <span>Voluptates provident labore beatae corporis deleniti sed dolore laborum. </span>
+              Impedit, quis, ab reiciendis praesentium cum vel aliquid pariatur, beatae accusantium iste et!
+            </p>
+            <h1 class="headingTwo">Heading Two</h1>
+            <p class="paragrphtwo">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+               <span>Voluptates provident labore beatae corporis deleniti sed dolore laborum. </span>
+              Impedit, quis, ab reiciendis praesentium cum vel aliquid pariatur, beatae accusantium iste et!
+            </p>
+            <ul id="list">
+               <li>List Item</li>
+               <li>List Item</li>
+               <li>List Item</li>
+               <li>List Item</li>
+               <li>List Item</li>
+               <li>List Item</li>
+               <li>List Item</li>
+            </ul>
+            <input type="button" value="button one">
+            <input type="submit" value="button two">
+            <input type="text">
+            <a href="http://google.com">Google</a>
+            <a href="http://yahoo.com">Yahoo</a>
+          </section>
 
 
-          <ul id="list">
-             <li>List Item</li>
-             <li>List Item</li>
-             <li>List Item</li>
-             <li>List Item</li>
-             <li>List Item</li>
-             <li>List Item</li>
-             <li>List Item</li>
-          </ul>
-
-          <input type="button" value="button one">
-          <input type="submit" value="button two">
-          <input type="text">
-
-          <a href="http://google.com">Google</a>
-          <a href="http://yahoo.com">Yahoo</a>
+        <section class="section2">
+            <h1 id="headingOne">Mouse Event</h1>
+            <button id="btn1">Button 1</button>
+            <button id="btn2">Button 2</button>
+ 
+            <p class="para1">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident totam vel, sed neque illum quia aliquid perspiciatis consectetur, odio nostrum voluptatum facere repellat, assumenda dignissimos tempore quas sapiente error temporibus?
+            </p>
+        </section>
     </div>
 
     <script>
+
+$(document).ready(function(){
       //$('h1').hide();
       //$('h1#headingOne').hide();
 
     //    $('h1.headingTwo').hide();
 
-    // $('p span').css('color', 'red');
+    $('p span').css('color', 'red');
 
 
     $('ul#list li:first').css('color', 'red')
@@ -83,12 +94,42 @@
 
 
 
-    // $(':button').hide();
+    $(':button').hide();
 
     $('[href]').css('color', 'red')
     $('a[href="http://yahoo.com"]').css('color', 'green')
 
     // $('*').hide()
+
+
+    
+    //     $('#btn1').click(function(){
+    //     alert("Clicked")
+    // });
+
+    // $('#btn1').on('click', function(){
+    //     alert("The Button Clicked So Hard")
+    // })
+ 
+
+    // $('#btn1').click(function(){
+    //     // $('.para1').hide();
+    //     $('.para1').toggle();
+    // })
+    // $('#btn2').click(function(){
+    //     $('.para1').show();
+    // })
+
+    $('#btn1').dblclick(function(){
+        $('.para1').toggle();
+    })
+    $('#btn2').hover(function(){
+        $('.para1').toggle();
+    });
+
+
+})
+   
     </script>
 </body>
 </html>
