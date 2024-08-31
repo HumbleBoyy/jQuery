@@ -38,6 +38,24 @@
     padding: 1rem 0rem;
     height: 100vh;
    }
+   .domManipulation{
+        padding: 10rem 0rem;
+        height: 100vh;
+   }
+
+   .DomPara1{
+    font-size: 2rem;
+    color: red;
+    background: #000;
+    padding: 1rem;
+   }
+
+   .DOMPara2{
+    font-size: 2rem;
+    color: aliceblue;
+    background: #000;
+    padding: 1rem;
+   }
 </style>
 <body>
     <header>
@@ -104,6 +122,38 @@
                 <input type="submit" value="Submit">
             </form>
         </section>
+
+
+        <!-- Section DOM Manipulation -->
+         <section class="domManipulation">
+              <div id="container">
+                <h1>DOM ManiPulation</h1>
+                  <button id="btnDom1">Button Dom1</button>
+                  <button id="btnDom2">Button Dom2</button>
+                  <p class="para1">This is the paragraph 1</p>
+                  <p class="para2">This is the paragraph 2</p>
+              </div>
+
+              <div id="myDiv">
+
+              </div>
+              <input type="text" id="newItem">
+              <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+              </ul>
+
+              <a href="http://google.com">Google</a>
+
+
+              <ul id="users">
+               
+              </ul>
+              
+         </section>
     </div>
 
     <script>
@@ -199,6 +249,50 @@ $(document).ready(function(){
         console.log(name)
     })
 
+
+    // Dom ManiPulation
+    // $('p.para1').css('color', 'green')
+    // $('p.para2').css({color:'red', background:"black",});
+
+    $('p.para1').addClass('DomPara1')
+    $('p.para2').addClass('DOMPara2')
+    
+    $('#btnDom1').click(function(){
+        $('p.para1').toggle('DOMPara1')
+    });
+    
+    // $('#myDiv').text('Hello World')
+    // $('#myDiv').html('<h2>Hello World</h2>');
+
+    // alert($('#myDiv').text());
+
+    $('ul').append('<li>Append List Item</li>');
+    $('ul').prepend('<li>Append List Item</li>');
+
+    // $('.para1').appendTo('.para2');
+
+    $('ul').before('<h4>Hello</h4>')
+    // $('ul').empty();
+    // $('ul').detach()
+    $('ul').after('<h4>Hello</h4>')
+
+
+    $('a').attr('target', '_blank');
+
+    $('#newItem').keyup(function(e){
+        var code = e.which;
+        if(code == 13){
+          e.preventDefault();
+          $('ul').append('<li>'+e.target.value+'</li>')
+        }
+    });
+
+
+    var myArray = ['Tom', 'Jerry', 'John', "Key"];
+
+    $.each(myArray, function(i, val){
+        $('#users').append('<li>'+val+'</li>')
+    })
 })
    
     </script>
